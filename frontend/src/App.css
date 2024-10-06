@@ -2,9 +2,17 @@ body, html {
   margin: 0px;
 }
 
-.app-container {
+.main-container {
   display: flex;
-  width: 100%; 
+  flex-direction: column;
+  align-items: center;
+  background-color: #0D0D0D;
+}
+
+.main-wrapper {
+  display: flex;
+  max-width: 1500px; 
+  width: 100%;
   height: 100vh;
   flex-direction: column;
 }
@@ -13,7 +21,7 @@ body, html {
   color: #ffffff;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
-  margin-left: 118px;
+  margin-left: 50px;
 }
 
 .button-group button {
@@ -24,6 +32,7 @@ body, html {
   margin: 8px;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
 
 .accent-text {
@@ -34,7 +43,7 @@ body, html {
 }
 
 .button-group {
-  margin-right: 125px;
+  margin-right: 50px;
 }
 
 .content-container {
@@ -48,21 +57,22 @@ body, html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 75px;
-  background-color: #18191a;;
+  height: 85px;
+  background-color: #18191a;
+  max-width: 100%;
 }
 
 .content-column, .savvy-logo-column {
   flex: 1 1 50%; 
   display: flex;
-  align-items: center; 
   justify-content: center; 
 }
 
 .content-column {
   background-color: #0D0D0D;
   flex-direction: column;
-  max-width: 60%;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .content-title {
@@ -70,11 +80,8 @@ body, html {
   color: #ffff;
   font-size: 50px;
   font-weight: 600;
-  margin-left: 35px
-}
+  margin-left: 50px;
 
-.spacer {
-  margin: 15px;
 }
 
 .content-body {
@@ -82,6 +89,29 @@ body, html {
   color: #ffff;
   font-size: 25px;
   font-weight: 300;
-  margin-left: 125px;
-  margin-bottom: 65px;
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
+.savvy-logo {
+  margin-bottom: 125px;
+  width: 100%;
+}
+
+.start-button-container {
+  margin-top: 25px;
+  margin-left: 50px;
+  margin-bottom: 125px;
+}
+
+.start-button-container button {
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: #ffffff;
+  border: none;
+  margin: 8px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
 }
