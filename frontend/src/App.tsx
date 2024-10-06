@@ -1,5 +1,6 @@
 import './App.css'
 import Reveal from './LandingPage/components/Reveal'
+import ProgressBar from './LandingPage/components/ProgressBar/ProgressBar';
 import LandingPage from './LandingPage/LandingPage'
 import tutorialVideo from './assets/savvybot-tutorial.mp4';
 import TeamCard from './LandingPage/components/TeamCard/TeamCard';
@@ -9,17 +10,18 @@ import williamProfileImg from './assets/williamProfileImg.jpeg'
 import davidProfileImg from './assets/davidProfileImg.jpeg'
 
 const App = () => {
+  
   return (
     <div className='main-container'>
       <div className='main-wrapper'>
-        <div className='header'>
+        <header className='sticky-header'>
           <div className='onyx-group'>
             OnyxAI LLC
           </div>
           <div className='button-group'>
             <button>Sign up</button>
           </div>
-        </div>
+        </header>
         <div className='content-container'>
           <div className='content-column'>
             <Reveal>
@@ -86,28 +88,25 @@ const App = () => {
               imageUrl={lennoxProfileImg}
               name='Lennox Anderson'
               title='Founder & Chief Engineer'
-              description='An experienced full-stack developer with a diverse educational background and extensive workforce experience, Lennox oversees the technical operations of Savvy CSV, ensuring seamless functionality and innovation across the platform.'
             />
             <TeamCard
               imageUrl={jonahProfileImg}
               name='Jonah Mulcrone'
               title='Software Engineer'
-              description="Jonah's background in computer science and finance brings significant value to Savvy CSV. His role as a software engineer demands expertise in full-stack development, encompassing back-end infrastructure, API development, front-end design, and user authentication."
             />
             <TeamCard
               imageUrl={williamProfileImg}
               name='William Guanci'
               title='Researcher & CO-Founder'
-              description="From developing models and testing to exploring new technologies, William plays a pivotal role in advancing Savvy CSV. His expertise ensures that our tools remain at the cutting edge of innovation, consistently delivering high-quality results."
             />
             <TeamCard
               imageUrl={davidProfileImg}
               name='David Bosse'
               title='Project Manager & CO-Founder'
-              description="David is the strategic planner behind Savvy CSV, ensuring the project aligns with user needs and industry standards. His expertise in agile project management has been pivotal in bringing Savvy CSV to market."
             />
           </div>
         </div>
+        <ProgressBar />
       </div>
     </div>
   )

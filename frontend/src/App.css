@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0px;
 }
 
@@ -11,10 +12,9 @@ body, html {
 
 .main-wrapper {
   display: flex;
-  max-width: 1500px; 
-  width: 100%;
-  overflow-y: auto;
+  max-width: 1500px;
   flex-direction: column;
+  align-items: center;
 }
 
 .onyx-group {
@@ -52,23 +52,31 @@ body, html {
 .content-container {
   display: flex;
   flex-direction: row;
-  height: 600px;
+  height: 750px;
 }
 
-.header {
+.sticky-header {
+  position: sticky;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
   align-items: center;
-  height: 85px;
+  justify-content: space-between;
+  top: 20px;
   background-color: #18191a;
-  max-width: 100%;
+  border-radius: 50px;
+  background: #18191a;
+  border: 1px solid #595656;
+  z-index: 1000;
+  padding: 10px;
 }
 
-.content-column, .savvy-logo-column {
-  flex: 1 1 50%; 
+.content-column,
+.savvy-logo-column {
+  flex: 1 1 50%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .content-column {
@@ -126,8 +134,9 @@ body, html {
   align-items: center;
 }
 
-.tutorial-content-column, .tutorial-gif-column {
-  flex: 1 1 50%; 
+.tutorial-content-column,
+.tutorial-gif-column {
+  flex: 1 1 50%;
   display: flex;
 }
 

@@ -9,7 +9,7 @@ interface RevealProps {
 const Reveal: React.FC<RevealProps> = ({ children }) => {
 
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-80px" });
     const mainControls = useAnimation();
     const slideControls = useAnimation();
 
@@ -24,12 +24,12 @@ const Reveal: React.FC<RevealProps> = ({ children }) => {
         <div ref={ref}>
             <motion.div
                 variants={{
-                    hidden: { opacity: 0, y: 85 },
+                    hidden: { opacity: 0, y: 50 },
                     visible: { opacity: 1, y: 0 }
                 }}
                 initial='hidden'
                 animate={mainControls}
-                transition={{ duration: 1.5, delay: 0.25 }}
+                transition={{ duration: 1, delay: 0.10 }}
             >
                 {children}
 

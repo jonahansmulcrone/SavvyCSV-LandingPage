@@ -5,10 +5,9 @@ interface TeamCardProps {
     imageUrl: string,
     name: string,
     title: string,
-    description: string
 }
 
-const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, title, description }) => {
+const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, title }) => {
     return (
         <div className={styles.cardContainer}>
             <Reveal>
@@ -25,11 +24,6 @@ const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, title, description 
                 <Reveal>
                     <div className={styles.teamMemberTitle}>
                         {title}
-                    </div>
-                </Reveal>
-                <Reveal>
-                    <div className={styles.teamMemberDescription}>
-                        {description}
                     </div>
                 </Reveal>
             </div>
