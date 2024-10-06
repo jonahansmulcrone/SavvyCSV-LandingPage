@@ -13,24 +13,27 @@ body, html {
   display: flex;
   max-width: 1500px; 
   width: 100%;
-  height: 100vh;
+  overflow-y: auto;
   flex-direction: column;
 }
 
 .onyx-group {
   color: #ffffff;
   font-weight: 700;
+  font-style: italic;
   font-family: 'Roboto', sans-serif;
   margin-left: 50px;
+  font-size: 18px;
 }
 
 .button-group button {
-  padding: 8px 14px;
+  padding: 10px 20px;
   border-radius: 20px;
   background-color: #ffffff;
   border: none;
   margin: 8px;
-  font-weight: 500;
+  font-weight: 300;
+  font-size: 14px;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
 }
@@ -49,7 +52,7 @@ body, html {
 .content-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 600px;
 }
 
 .header {
@@ -89,19 +92,17 @@ body, html {
   color: #ffff;
   font-size: 25px;
   font-weight: 300;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-left: 50px;
 }
 
 .savvy-logo {
-  margin-bottom: 125px;
   width: 100%;
 }
 
 .start-button-container {
   margin-top: 25px;
   margin-left: 50px;
-  margin-bottom: 125px;
 }
 
 .start-button-container button {
@@ -111,7 +112,83 @@ body, html {
   background-color: #ffffff;
   border: none;
   margin: 8px;
-  font-weight: 500;
+  font-weight: 300;
   font-family: 'Roboto', sans-serif;
   cursor: pointer;
+}
+
+/* Tutorial Segment */
+
+.tutorial-container {
+  display: flex;
+  flex-direction: row;
+  height: 600px;
+  align-items: center;
+}
+
+.tutorial-content-column, .tutorial-gif-column {
+  flex: 1 1 50%; 
+  display: flex;
+}
+
+.tutorial-content-column {
+  background-color: #0D0D0D;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  justify-content: center;
+}
+
+.tutorial-title {
+  font-family: 'Roboto', sans-serif;
+  color: #ffff;
+  font-size: 50px;
+  font-weight: 600;
+  margin-right: 50px;
+  text-align: left;
+}
+
+.tutorial-body {
+  font-family: 'Roboto', sans-serif;
+  color: #ffff;
+  font-size: 25px;
+  font-weight: 300;
+  margin-top: 25px;
+  margin-right: 50px;
+  text-align: left;
+}
+
+.tutorial-gif-column {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorial-gif video {
+  border-radius: 20px;
+}
+
+/* Team Segment */
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  height: 1200px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.team-title-row {
+  font-family: 'Roboto', sans-serif;
+  color: #ffff;
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.team-members-wrapper {
+  margin-top: 45px;
 }

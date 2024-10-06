@@ -39,7 +39,7 @@ const Text: React.FC<TextProps> = ({ children, config, font = 'fonts/helvetiker_
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.y += delta
+      ref.current.rotation.y += 0.01
     }
   })
 
@@ -90,9 +90,9 @@ const SavvyLogo: React.FC = () => {
   return (
     <Canvas shadows orthographic camera={{ position: [0, 10, 5], zoom: 18 }} >
       <color attach="background" args={['#0D0D0D']} />
-      <Text config={config} rotation={[150, 0, 0]} position={[0, 0, 5]}>
-        {text}
-      </Text>
+        <Text config={config} rotation={[150, 0, 0]} position={[0, 0, 5]}>
+          {text}
+        </Text>
       <OrbitControls
         autoRotateSpeed={-0.1}
         zoomSpeed={0.25}
@@ -110,9 +110,6 @@ const SavvyLogo: React.FC = () => {
           <Lightformer intensity={25} rotation-y={Math.PI / 2} position={[-5, -1, -1]} scale={[10, 2, 1]} />
           <Lightformer intensity={2} rotation-y={-Math.PI / 2} position={[10, 1, 0]} scale={[20, 2, 1]} />
           <Lightformer type="ring" intensity={2} rotation-y={Math.PI / 2} position={[-0.1, -1, -5]} scale={10} />
-          <Lightformer intensity={4} rotation-y={Math.PI / 2} position={[-5, 1, -1]} scale={[20, 0.1, 1]} />
-          <Lightformer rotation-y={Math.PI / 2} position={[-5, -1, -1]} scale={[20, 0.5, 1]} />
-          <Lightformer rotation-y={-Math.PI / 2} position={[10, 1, 0]} scale={[20, 1, 1]} />
         </group>
       </Environment>
     </Canvas>
