@@ -8,8 +8,9 @@ import {
   OrbitControls,
   MeshTransmissionMaterial
 } from '@react-three/drei'
-import { useEffect, useRef } from 'react';
+import { Suspense, useEffect, useMemo, useRef } from 'react';
 import { Mesh, Vector3 } from 'three';
+import Reveal from './components/Reveal';
 
 interface TextProps {
   children: React.ReactNode;
@@ -18,8 +19,7 @@ interface TextProps {
   [key: string]: any;
 }
 
-const Text: React.FC<TextProps> = ({ children, config, font = 'fonts/helvetiker_regular.typeface.json', ...props }) => {
-  const texture = useLoader(RGBELoader, 'src/assets/pink_sunrise_4k.hdr')
+const Text: React.FC<TextProps> = ({ children, config, font = 'fonts/helvetiker_regular.typeface.json' }) => {
   const ref = useRef<Mesh>(null)
 
   useEffect(() => {
@@ -37,16 +37,16 @@ const Text: React.FC<TextProps> = ({ children, config, font = 'fonts/helvetiker_
     }
   })
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     if (ref.current) {
-      ref.current.rotation.y += 0.01
+      ref.current.rotation.y += 0.0008
     }
   })
 
   return (
     <>
       <group>
-        <Center position={[0, 1, 0]} rotation={[-Math.PI / 12, Math.PI / 12, 0]}>
+        <Center position={[0, 2.5, 0]} rotation={[-Math.PI / 12, Math.PI / -12, 0]}>
           <Text3D
             ref={ref}
             bevelEnabled
@@ -58,7 +58,7 @@ const Text: React.FC<TextProps> = ({ children, config, font = 'fonts/helvetiker_
             bevelSegments={25}
             bevelThickness={0.05}>
             {children}
-            <MeshTransmissionMaterial {...config} background={texture} />
+            <MeshTransmissionMaterial {...config} />
           </Text3D>
         </Center>
       </group>
@@ -88,20 +88,21 @@ const SavvyLogo: React.FC = () => {
   };
 
   return (
-    <Canvas shadows orthographic camera={{ position: [0, 10, 5], zoom: 18 }} >
+    <Canvas shadows orthographic camera={{ position: [0, 10, 8], zoom: 18 }} >
       <color attach="background" args={['#0D0D0D']} />
-        <Text config={config} rotation={[150, 0, 0]} position={[0, 0, 5]}>
+      <Suspense fallback={null}>
+        <Text config={config} rotation={[0, 0, 0]} position={[0, 0, 50]}>
           {text}
         </Text>
+      </Suspense>
       <OrbitControls
-        autoRotateSpeed={-0.1}
         zoomSpeed={0.25}
         minZoom={18}
         maxZoom={18}
         enablePan={false}
         dampingFactor={0.01}
-        minPolarAngle={Math.PI / 2.5}
-        maxPolarAngle={Math.PI / 2.5}
+        minPolarAngle={Math.PI / 2.6}
+        maxPolarAngle={Math.PI / 2.6}
       />
       <Environment resolution={32}>
         <group rotation={[-Math.PI / 4, -0.3, 0]}>

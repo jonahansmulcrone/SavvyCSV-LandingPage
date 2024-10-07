@@ -1,22 +1,35 @@
 import './App.css'
 import Reveal from './LandingPage/components/Reveal'
 import ProgressBar from './LandingPage/components/ProgressBar/ProgressBar';
-import LandingPage from './LandingPage/LandingPage'
+import LandingPage from './LandingPage/Savvy3DLogo'
 import tutorialVideo from './assets/savvybot-tutorial.mp4';
 import TeamCard from './LandingPage/components/TeamCard/TeamCard';
 import lennoxProfileImg from './assets/lennoxProfileImg.jpeg'
 import jonahProfileImg from './assets/jonahProfileImg.jpeg'
 import williamProfileImg from './assets/williamProfileImg.jpeg'
 import davidProfileImg from './assets/davidProfileImg.jpeg'
+import { useRef } from 'react';
 
 const App = () => {
-  
+  const howToRef = useRef<HTMLDivElement | null>(null);
+  const meetTheTeamRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToSegment = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
   return (
     <div className='main-container'>
       <div className='main-wrapper'>
         <header className='sticky-header'>
-          <div className='onyx-group'>
-            OnyxAI LLC
+          <div className='left-header-group'>
+            <div className='onyx-group'>
+              OnyxAI LLC
+            </div>
+            <div className='nav-button-group'>
+              <button onClick={() => scrollToSegment(howToRef)}>How to Use</button>
+              <button onClick={() => scrollToSegment(meetTheTeamRef)}>Meet the Team</button>
+            </div>
           </div>
           <div className='button-group'>
             <button>Sign up</button>
@@ -26,12 +39,15 @@ const App = () => {
           <div className='content-column'>
             <Reveal>
               <div className='content-title'>
-                <span className='accent-text'>Data-Driven</span> Solutions
+                <span className='accent-text'>Real Data</span> in Real Time.
               </div>
             </Reveal>
             <Reveal>
+              <div className='content-body'>Designed to effortlessly create the perfect CSV file.</div>
+            </Reveal>
+            <Reveal>
               <div className='content-body'>
-                SavvyCSV leverages the power of AI and web scraping to create the perfect CSV file for your needs.
+                By harnessing the power of web-scraping technologies and Artificial Intelligence, SavvyCSV promises to streamline your data collection process.
               </div>
             </Reveal>
             <Reveal>
@@ -48,7 +64,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div className='tutorial-container'>
+        <div className='tutorial-container' ref={howToRef}>
           <div className='tutorial-gif-column'>
             <Reveal>
               <div className="tutorial-gif">
@@ -67,17 +83,17 @@ const App = () => {
           <div className='tutorial-content-column'>
             <Reveal>
               <div className='tutorial-title'>
-                Endless <span className='accent-text'>datasets</span> at your disposal
+                Endless <span className='accent-text'>Datasets</span> at Your Disposal.
               </div>
             </Reveal>
             <Reveal>
               <div className='tutorial-body'>
-                Search for any dataset you can imagine by communicating with SavvyBot
+                Search for any dataset you can imagine by communicating with SavvyBot.
               </div>
             </Reveal>
           </div>
         </div>
-        <div className='team-container'>
+        <div className='team-container' ref={meetTheTeamRef}>
           <Reveal>
             <div className='team-title-row'>
               Meet the <span className='accent-text'>SavvyCSV</span> Team
@@ -90,6 +106,11 @@ const App = () => {
               title='Founder & Chief Engineer'
             />
             <TeamCard
+              imageUrl={davidProfileImg}
+              name='David Bosse'
+              title='Project Manager & CO-Founder'
+            />
+            <TeamCard
               imageUrl={jonahProfileImg}
               name='Jonah Mulcrone'
               title='Software Engineer'
@@ -98,11 +119,6 @@ const App = () => {
               imageUrl={williamProfileImg}
               name='William Guanci'
               title='Researcher & CO-Founder'
-            />
-            <TeamCard
-              imageUrl={davidProfileImg}
-              name='David Bosse'
-              title='Project Manager & CO-Founder'
             />
           </div>
         </div>

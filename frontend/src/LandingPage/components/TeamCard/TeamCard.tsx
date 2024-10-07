@@ -8,6 +8,8 @@ interface TeamCardProps {
 }
 
 const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, title }) => {
+    const [ firstName, lastName = '' ] = name.trim().split(' ');
+
     return (
         <div className={styles.cardContainer}>
             <Reveal>
@@ -18,7 +20,7 @@ const TeamCard: React.FC<TeamCardProps> = ({ imageUrl, name, title }) => {
             <div className={styles.teamMemberInfo}>
                 <Reveal>
                     <div className={styles.teamMemberName}>
-                        <span className={styles.accentText}>{name}</span>
+                        <span className={styles.accentText}>{firstName}</span> {lastName}
                     </div>
                 </Reveal>
                 <Reveal>

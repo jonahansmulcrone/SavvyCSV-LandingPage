@@ -9,7 +9,7 @@ interface RevealProps {
 const Reveal: React.FC<RevealProps> = ({ children }) => {
 
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: "-80px" });
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
     const mainControls = useAnimation();
     const slideControls = useAnimation();
 
